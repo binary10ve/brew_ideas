@@ -3,8 +3,7 @@ BrewIdeas::Application.routes.draw do
 
   resources :ideas
 
-  resources :posts, :controller => "ideas"
-
+  match 'ideas/which-are/:category' => "ideas#index" 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

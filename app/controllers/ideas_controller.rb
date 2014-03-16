@@ -3,8 +3,11 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
-
+    @ideas = Idea.scoped
+    @ideas = @ideas.recent  if params[:category] == "recent"
+    @ideas = @ideas.popular  if params[:category] == "popular"
+    @ideas = @ideas.mine  if params[:category] == "mine"
+    @ideas = @ideas.search(params[:query])   if params[:category] == "searchable" && params[:query].present?
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @ideas }
