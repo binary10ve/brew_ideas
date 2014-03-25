@@ -11,38 +11,60 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140316092918) do
+ActiveRecord::Schema.define(:version => 20140325175655) do
 
-  create_table "comments", :force => true do |t|
-    t.integer "post_id"
-    t.text    "description"
-    t.integer "user_id"
+  create_table "feed_comments", :force => true do |t|
+    t.text     "message"
+    t.integer  "feed_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  create_table "idea_choices", :force => true do |t|
-    t.integer "idea_id"
-    t.string  "title"
+  create_table "feed_dislikes", :force => true do |t|
+    t.integer  "feed_id"
+    t.integer  "feed_comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "feed_likes", :force => true do |t|
+    t.integer  "feed_id"
+    t.integer  "feed_comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "feeds", :force => true do |t|
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "idea_tags", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "idea_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "ideas", :force => true do |t|
     t.string   "title"
     t.text     "description"
+    t.integer  "view_counts"
+    t.integer  "feed_id"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "likeable", :force => true do |t|
-    t.integer "idea_id"
-    t.integer "user_id"
-    t.integer "comment_id"
-  end
-
-  create_table "user_idea_choices", :force => true do |t|
-    t.integer "user_id"
-    t.integer "idea_id"
-    t.integer "idea_choice_id"
-    t.text    "commment"
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
