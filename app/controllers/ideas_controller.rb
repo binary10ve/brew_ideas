@@ -1,9 +1,10 @@
 class IdeasController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
   # GET /ideas
   # GET /ideas.json
   def index
     @ideas = Idea.scoped
+    params[:category] ||= "recent"
     @ideas = @ideas.recent  if params[:category] == "recent"
     @ideas = @ideas.popular  if params[:category] == "popular"
     @ideas = @ideas.mine  if params[:category] == "mine"
