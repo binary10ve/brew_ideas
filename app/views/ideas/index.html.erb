@@ -5,15 +5,23 @@
 </form>
 <% @ideas.each do |idea| %>
 <div class="media">
-              <a class="pull-left" href="#">
+              <a class="pull-left feelings-updater" href="/feelings/<%=idea.id%>/liked">
                 <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="/assets/like.png" style="width: 24px; height: 24px;">0
               </a>
-                <a class="pull-left" href="#">
+              <a class="pull-left feelings-updater" href="/feelings/<%=idea.id%>/disliked">
                 <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="/assets/dislike.png" style="width: 24px; height: 24px;">0
               </a>
               <div class="media-body">
-                <h4 class="media-heading"><%= idea.title%></h4><%= idea.description%>.
+                <h4 class="media-heading"><%= idea.title%></h4><%= idea.description%>.<%= idea.user_id%>
               </div>
             </div>
 <% end %>
 </div>
+<script type="text/javascript">
+jQuery(".feelings-updater").click(function(e){
+  jQuery.ajax({
+    url : this.href
+  })
+  e.preventDefault();
+})
+</script>

@@ -10,7 +10,7 @@
       </button>
       <%= link_to 'Home', '/ideas', class: 'navbar-brand' %>
     </div>
-     <%= link_to 'Sign out', root_path, class: 'navbar-brand', style: 'float:right;' %>
+    <%= link_to('Logout', destroy_user_session_path, class: 'navbar-brand', style: 'float:right;' ,method: :delete) %>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
