@@ -1,4 +1,16 @@
 BrewIdeas::Application.routes.draw do
+  resources :tags
+
+
+  resources :feeds
+
+
+  resources :feed_dislikes
+
+
+  resources :feed_likes
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :ideas
