@@ -33,9 +33,11 @@ class CreateInitialStructure < ActiveRecord::Migration
  create_table :ideas do |t|
       t.string :title
       t.text :description
-      t.integer :view_counts
       t.integer :feed_id
-	  t.integer :user_id
+	    t.integer :user_id
+      t.integer :view_counts
+      t.integer :likes_counts
+      t.integer :dislikes_counts
       t.timestamps	
     end
 
