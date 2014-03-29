@@ -1,7 +1,9 @@
 class Idea < ActiveRecord::Base
   attr_accessible :description, :title, :feed_id, :user_id
   scope :popular
-  scope :mine
+  scope :most_voted, :order => "likes_counts desc"
+  scope :most_viewed, :order => "view_counts desc"
+  scope :mine, -> (user) { where("user_id = ?", user.id) }
   scope :recent, :order => "created_at desc"
   scope :search  
   scope :search, ->(query) { where("title like '%#{query}%' or description like '%#{query}%'") }

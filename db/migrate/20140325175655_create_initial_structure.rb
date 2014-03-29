@@ -35,9 +35,9 @@ class CreateInitialStructure < ActiveRecord::Migration
       t.text :description
       t.integer :feed_id
 	    t.integer :user_id
-      t.integer :view_counts
-      t.integer :likes_counts
-      t.integer :dislikes_counts
+      t.integer :view_counts , :default => 0
+      t.integer :likes_counts, :default => 0
+      t.integer :dislikes_counts, :default => 0
       t.timestamps	
     end
 

@@ -7,7 +7,9 @@ class IdeasController < ApplicationController
     params[:category] ||= "recent"
     @ideas = @ideas.recent  if params[:category] == "recent"
     @ideas = @ideas.popular  if params[:category] == "popular"
-    @ideas = @ideas.mine  if params[:category] == "mine"
+    @ideas = @ideas.mine(current_user)  if params[:category] == "mine"
+    @ideas = @ideas.most_voted  if params[:category] == "most-voted"
+    @ideas = @ideas.most_viewed  if params[:category] == "most-viewed"
     @ideas = @ideas.search(params[:query])   if params[:category] == "searchable" && params[:query].present?
     respond_to do |format|
       format.html # index.html.erb
