@@ -1,14 +1,14 @@
-<div style="margin-top:50px;">
+<div style="margin-top:50px;" id="app-feed-container">
   <form class="form-search" action="/ideas/which-are/searchable" method="GET">
   <input type="text" name="query" class="input-medium search-query">
   <button type="submit" class="btn">Search</button>
 </form>
 <% @ideas.each do |idea| %>
 <div class="media">
-              <a class="pull-left feelings-updater" href="/feelings/<%=idea.id%>/liked">
+              <a class="pull-left vote-up action" href="/feelings/<%=idea.id%>/liked">
                 <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="/assets/like.png" style="width: 24px; height: 24px;">0
               </a>
-              <a class="pull-left feelings-updater" href="/feelings/<%=idea.id%>/disliked">
+              <a class="pull-left vote-down action" href="/feelings/<%=idea.id%>/disliked">
                 <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="/assets/dislike.png" style="width: 24px; height: 24px;">0
               </a>
               <div class="media-body">
@@ -17,11 +17,3 @@
             </div>
 <% end %>
 </div>
-<script type="text/javascript">
-jQuery(".feelings-updater").click(function(e){
-  jQuery.ajax({
-    url : this.href
-  })
-  e.preventDefault();
-})
-</script>
