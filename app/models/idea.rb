@@ -12,8 +12,10 @@ class Idea < ActiveRecord::Base
   has_many :tags , through: :idea_tags
 
   after_create :create_feed
- 
 
+  validates :title, presence: true
+  validates :description, presence: true
+  validates_length_of :description, :minimum => 5
 
   def create_feed
   	feed = Feed.create_feed({idea: self})
