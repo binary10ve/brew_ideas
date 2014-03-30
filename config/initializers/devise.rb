@@ -21,7 +21,9 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
-  config.omniauth :facebook, "373652372756221", "b1d1c4f6180c836f3e251376eb44b8aa"
+  #config.omniauth :facebook, "373652372756221", "b1d1c4f6180c836f3e251376eb44b8aa"
+  config.omniauth :facebook, FACEBOOK_CLIENT_ID, FACEBOOK_CLIENT_SECRET_KEY
+  
   config.omniauth :google_oauth2, "973898828989.apps.googleusercontent.com", "5IArtvjQO9Dve6EgsMto4be_"
 
   # ==> Configuration for any authentication mechanism
