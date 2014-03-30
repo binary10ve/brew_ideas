@@ -1,0 +1,11 @@
+development:
+  client_id: 686729253009.apps.googleusercontent.com
+  client_secret_key: 686729253009@developer.gserviceaccount.com
+
+test:
+  client_id: 686729253009.apps.googleusercontent.com
+  client_secret_key: 686729253009@developer.gserviceaccount.com
+  
+production:
+  client_id: 686729253009.apps.googleusercontent.com
+  client_secret_key: 686729253009@developer.gserviceaccount.com
