@@ -1,0 +1,11 @@
+development:
+  client_id: 1490777211145475
+  client_secret_key: 69eb8271a931a3a89b9e1c73b5b7054f
+
+test:
+  client_id: 1490777211145475
+  client_secret_key: 69eb8271a931a3a89b9e1c73b5b7054f
+  
+production:
+  client_id: 1490777211145475
+  client_secret_key: 69eb8271a931a3a89b9e1c73b5b7054f
