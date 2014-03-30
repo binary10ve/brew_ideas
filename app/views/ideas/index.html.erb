@@ -14,6 +14,11 @@
               <div class="media-body">
                 <h4 class="media-heading"><%= idea.title%></h4><%= idea.description%>.<%= idea.user_id%>
               </div>
+              <% if idea.user_id == current_user.id %>
+                <div>
+                  <%= link_to "Delete", idea_path(idea.id), :method => :delete, :confirm => "Are you sure?" %>
+                </div>
+              <% end %>
             </div>
 <% end %>
 </div>

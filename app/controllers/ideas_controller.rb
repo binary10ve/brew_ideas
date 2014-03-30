@@ -82,6 +82,8 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
     @idea.destroy
 
+    flash[:notice] = "Idea deleted successfully"
+
     respond_to do |format|
       format.html { redirect_to ideas_url }
       format.json { head :no_content }
